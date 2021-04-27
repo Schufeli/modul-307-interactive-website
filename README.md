@@ -90,5 +90,5 @@ WENN          die Datenbank leer ist,
 DANN          sehe ich einen Text, mit der Information einen neuen Eintrag zu erstellen.
 ```
 ## Datenbank
-
+![Database diagramm](./doc/images/database.png)
 ## Roadmap
