@@ -22,10 +22,21 @@ In den Grundzügen soll das Tool folgende Aufgaben übernehmen:
 | Update| /update | Seite, welche dazu dient, bestehende Einträge anzupassen. |
 | Confirm | /confirm | Seite, welche aufgerufen wird, sobald ein Datensatz entfernt werden soll. Somit können wir Versehentliches löschen, vorzubeugen. |
 
-## Formulare
+## Formulare (Wireframes)
+Das Dashboard ist die Mainpage der Applikation. Hier werden alle Verleihe, welche erfasst wurden, sortiert aus der Datenbank ausgelesen und angezeigt. Über das Dashboard hat man die Möglichkeit neue Verleihe zu erfassen (/create), vorhandene Verleihe zu bearbeiten (/update) und vorhanden Verleihe auch zu löschen (/confirm). Beides wird über die Requestmethode POST abgeschickt
+
+![Wireframes 1](./doc/images/wireframe1.png)
+![Wireframes 2](./doc/images/wireframe2.png)
 
 ## Validierung
-Alle Formularfelder sollen mit regex überprüft werden. Die Pflichtfelder werden dazu noch auf "nicht leer" überprüft.
+| Formular | Formularfeld | Validierung |
+| :--- | :--- | :--- |
+| Add/Update Verleihe | Name | Trim() && not null | 
+| Add/Update Verleihe | Email | Trim() && not null && spezielle Überprüfung damit Umlaute verwendet werden können | 
+| Add/Update Verleihe | Telefon | Trim() && spezielle regex Überprüfung | 
+| Add/Update Verleihe | Risikostufe | Not null | 
+| Add Verleihe | Hypo-Paket | Not null | 
+| Update Verleihe | Rückzahlungs-Status | Nicht notwendig, da es nur true oder false sein kann. |
 
 ## Testfälle
 ### 1. Liste der Hypothekeinträge
