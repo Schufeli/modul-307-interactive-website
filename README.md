@@ -103,3 +103,15 @@ DANN          sehe ich einen Text, mit der Information einen neuen Eintrag zu er
 ## Datenbank
 ![Database diagramm](./doc/images/database.png)
 ## Roadmap
+### Tag 1
+- Konfigurieren des Frameworks und erstellen der verschiedenen Komponenten
+- Datenbank verbindung erstellen
+- Modells erstellen mit den benötigten funktionen.
+- Erstellen der Formulare.
+- Testen der Validierung.
+- Testen der Formulare.
+
+### Tag 2
+- Testen der Applikation
+- Code clean-up und refactoring
+- Alles bereit machen für die abgabe
