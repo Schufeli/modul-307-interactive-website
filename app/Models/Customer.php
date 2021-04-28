@@ -6,18 +6,20 @@ class Customer
     public string $name;
     public string $email;
     public string $phone;
-    public DateTime $start;
-    public DateTime $finish;
+    public string $start;
+    public string $finish;
     public bool $completed;
     public int $risklevelId;
     public int $mortgageId;
 
-    public function __construct(int $id, string $name, string $email, string $phone, bool $completed, int $risklevelId, int $mortgageId)
+    public function __construct(int $id, string $name, string $email, string $phone, string $start, string $finish ,bool $completed, int $risklevelId, int $mortgageId)
     {
         $this->id = $id;
         $this->name = $name;
         $this->email = $email;
         $this->phone = $phone;
+        $this->start = $start;
+        $this->finish = $finish;
         $this->completed = $completed;
         $this->risklevelId = $risklevelId;
         $this->mortgageId = $mortgageId;
@@ -55,7 +57,7 @@ class Customer
         $statement = Database::getInstance()->getConnection()->prepare('SELECT * FROM customers WHERE completed NOT LIKE 1');
         $statement->execute();
 
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);// fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, "Customer"); //PDO::FETCH_ASSOC
 
         if (!$result) {
             return null;

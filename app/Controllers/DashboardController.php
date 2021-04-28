@@ -2,8 +2,14 @@
 
 class DashboardController
 {
+	
+
 	public function index()
 	{
+		$customers = Customer::getAll();
+		$mortgages = Mortgage::getAll();
+		$risklevels = Risklevel::getAll();
+
 		require 'app/Views/dashboard.view.php';
 	}
 
