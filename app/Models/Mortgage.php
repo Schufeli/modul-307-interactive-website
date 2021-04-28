@@ -24,7 +24,10 @@ class Mortgage
 			return null;
 		}
 
-		return $result;
+		return new self (
+            $result['id'],
+            $result['package']
+        );
     }
 
     // Fetch all Mortgages
@@ -33,12 +36,23 @@ class Mortgage
         $statement = Database::getInstance()->getConnection()->prepare('SELECT * FROM mortgages');
         $statement->execute();
 
-        $result = $statement->fetchAll();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         if (!$result) {
             return null;
         }
 
-        return $result;
+        $mortgages = [];
+
+        foreach ($result as $object) {
+            array_push($mortgages,
+                new Mortgage(
+                    $object['id'],
+                    $object['package'],
+                )
+            );
+        }
+
+        return $mortgages;
     }
 }
