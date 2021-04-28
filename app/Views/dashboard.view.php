@@ -20,17 +20,26 @@
             <th>Options</th>
         </tr>
         <?php foreach($customers as $customer): ?>
-            <td><?= $customer->name ?></td>
-            <td><?= $customer->email ?></td>
-            <td><?= $customer->phone ?></td>
-            <td><?= $risklevels[$customer->risklevelId]->name ?></td>
-            <td><?= $mortgages[$customer->mortgageId]->package ?></td>
-            <td>
-            </td>
-            <td><p>Options</p></td>
-            
+            <tr>
+                <td><?= $customer->name ?></td>
+                <td><?= $customer->email ?></td>
+                <td><?= $customer->phone ?></td>
+                <td><?= $risklevels[$customer->risklevelId]->name ?></td>
+                <td><?= $mortgages[$customer->mortgageId]->package ?></td>
+                <td>
+                    <?php
+                        $currentDateTime = new DateTime();
+                        if ($customer->completed != 1 && strtotime($customer->finish) > strtotime($currentDateTime->format('Y-m-d'))) {
+                            echo "💸";
+                        }
+                        else {
+                            echo "🚨";
+                        }
+                    ?>
+                </td>
+                <td><p>Options</p></td>
+            </tr>
         <?php endforeach; ?>
-        
     </table>
 </div>
 
