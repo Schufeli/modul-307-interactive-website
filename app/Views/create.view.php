@@ -7,7 +7,7 @@
     <title>HippiBank</title>
 </head>
 <body>
-    <form name="createForm" action="/dashboard/create" method="POST">
+    <form name="createForm" action="./create" method="POST">
         <label for="name">Name: *</label><br>
         <input type="text" id="name" name="name"><br>
 
@@ -18,7 +18,7 @@
         <input type="tel" id="phone" name="phone"><br>
         
         <label for="risklevel">Choose a Risklevel: *</label>
-        <select name="risklebel" id="risklebel">
+        <select name="risklevel" id="risklevel">
             <!-- php foreach for combobox -->
         </select> <br>
         <label for="mortgage">Choose a Mortgage: *</label>

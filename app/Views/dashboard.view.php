@@ -7,6 +7,7 @@
 </head>
 <body>
 <h1 class="title">HippiBank</h1>
+<button><a href="./create">Add</a></button>
 <table style="width:100%">
     <tr>
         <th>ID</th>
