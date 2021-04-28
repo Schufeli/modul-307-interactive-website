@@ -7,7 +7,7 @@
     <title>HippiBank</title>
 </head>
 <body>
-    <form action="/dashboard/create" method="POST">
+    <form name="createForm" action="/dashboard/create" method="POST">
         <label for="name">Name: *</label><br>
         <input type="text" id="name" name="name"><br>
 

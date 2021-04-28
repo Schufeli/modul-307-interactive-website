@@ -4,20 +4,25 @@ class DashboardController
 {
 	public function index()
 	{
-		//db connection
-		
 		require 'app/Views/dashboard.view.php';
 	}
 
 	public function create() {
-		require 'app/Views/create.view.php';
+
 	}
 	public function update() {
-		require 'app/Views/create.view.php';
+		$id = $_POST['id'];
+		$name = $_POST['name'];
+		$email = $_POST['email'];
+		$phone = $_POST['phone'];
+		$risklevel = $_POST['risklevel'];
+		$mortgage = $_POST['mortgage'];
 	}
-
 	public function edit() {
 		require 'app/Views/edit.view.php';
+	}
+	public function confirm() {
+
 	}
 }
 

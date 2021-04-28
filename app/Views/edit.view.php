@@ -8,6 +8,8 @@
 </head>
 <body>
     <form action="/modul-307-interactive-website/update" method="POST">
+        <input type="hidden" id="id" name="id"><br>
+
         <label for="name">Name: *</label><br>
         <input type="text" id="name" name="name"><br>
 
