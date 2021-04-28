@@ -15,20 +15,20 @@
     ?>
     <form name="createForm" action="./create" method="POST">
         <label for="name">Name: *</label><br>
-        <input type="text" id="name" name="name" value="<?=(empty($name)) ? '' : $name ?>" required><br>
+        <input type="text" id="name" name="name" value="<?=$name ?? ''?>" required><br>
 
         <label for="email">Email: *</label><br>
-        <input type="text" id="email" name="email" value="<?=(empty($email)) ? '' : $email ?>" required><br>
+        <input type="text" id="email" name="email" value="<?=$email ?? ''?>" required><br>
 
         <label for="phone">Phonenumber: </label><br>
-        <input type="tel" id="phone" name="phone" value="<?=(empty($phone)) ? '' : $phone ?>"><br>
+        <input type="tel" id="phone" name="phone" value="<?=$phone ?? ''?>"><br>
         
         <label for="risklevel">Choose a Risklevel: *</label>
-        <select name="risklevel" id="risklevel" value="<?=(empty($risklevel)) ? '' : $risklevel ?>" required>
+        <select name="risklevel" id="risklevel" value="<?=$risklevel ?? ''?>" required>
             <!-- php foreach for combobox -->
         </select> <br>
         <label for="mortgage">Choose a Mortgage: *</label>
-        <select name="mortgage" id="mortgage" value="<?=(empty($mortgage)) ? '' : $mortgage ?>" required>
+        <select name="mortgage" id="mortgage" value="<?=$mortgage ?? ''?>" required>
             <!-- php foreach for combobox -->
         </select> <br>
 
