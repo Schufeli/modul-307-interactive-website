@@ -32,8 +32,10 @@ CREATE TABLE `customers` (
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `phone` varchar(255) DEFAULT NULL,
-  `risklevel` int(11) NOT NULL,
-  `mortgage` int(11) NOT NULL
+  `fk_risklevelId` int(11) NOT NULL,
+  `fk_mortgageId` int(11) NOT NULL,
+  `created` date NOT NULL,
+  `completed` tinyint DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -85,6 +87,17 @@ CREATE TABLE `risklevels` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Daten für Tabelle `risklevels`
+--
+
+INSERT INTO `risklevels` (`id`, `name`, `duration`) VALUES
+(1, 'sehr tief', 840),
+(2, 'tief', 660),
+(3, 'normal', 480),
+(4, 'hoch', 360),
+(5, 'sehr hoch', 240);
+
+--
 -- Indizes der exportierten Tabellen
 --
 
@@ -93,8 +106,8 @@ CREATE TABLE `risklevels` (
 --
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_mortgage` (`mortgage`),
-  ADD KEY `fk_risklevel` (`risklevel`);
+  ADD KEY `fk_mortgage` (`fk_mortgageId`),
+  ADD KEY `fk_risklevel` (`fk_risklevelId`);
 
 --
 -- Indizes für die Tabelle `mortgages`
@@ -128,7 +141,7 @@ ALTER TABLE `mortgages`
 -- AUTO_INCREMENT für Tabelle `risklevels`
 --
 ALTER TABLE `risklevels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints der exportierten Tabellen
@@ -138,8 +151,8 @@ ALTER TABLE `risklevels`
 -- Constraints der Tabelle `customers`
 --
 ALTER TABLE `customers`
-  ADD CONSTRAINT `fk_mortgage` FOREIGN KEY (`mortgage`) REFERENCES `mortgages` (`id`),
-  ADD CONSTRAINT `fk_risklevel` FOREIGN KEY (`risklevel`) REFERENCES `risklevels` (`id`);
+  ADD CONSTRAINT `fk_mortgage` FOREIGN KEY (`fk_mortgageId`) REFERENCES `mortgages` (`id`),
+  ADD CONSTRAINT `fk_risklevel` FOREIGN KEY (`fk_risklevelId`) REFERENCES `risklevels` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

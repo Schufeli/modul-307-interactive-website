@@ -4,7 +4,8 @@
 * Singleton to create a database connection instance
 */
 
-class Database {
+class Database 
+{
     // Database credentials
     private $db = [
         'name'     => 'hippibank',
@@ -15,7 +16,8 @@ class Database {
     private static $instance = null;
     private $connection;
 
-    protected function __construct() {
+    protected function __construct() 
+    {
         try {
             $this->connection = new PDO('mysql:host=localhost;dbname=' . $this->db['name'], $this->db['username'], $this->db['password'], [
                 PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -26,14 +28,16 @@ class Database {
         }
     }
 
-    public static function getInstance() {
+    public static function getInstance() 
+    {
         if (self::$instance == null) {
             self::$instance = new Database();
         }
         return self::$instance;
     }
 
-    public function getConnection() {
+    public function getConnection() 
+    {
         return $this->connection;
     }
 }
