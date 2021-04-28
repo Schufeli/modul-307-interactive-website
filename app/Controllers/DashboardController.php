@@ -13,11 +13,11 @@ class DashboardController
 		$errors = [];
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') 
 		{
-			$name = trim($_POST['name']);
-			$email = trim($_POST['email']);
-			$phone = trim($_POST['phone']);
-			$risklevel = $_POST['risklevel'];
-			$mortgage = $_POST['mortgage'];
+			$name = trim(htmlentities($_POST['name']));
+			$email = trim(htmlentities($_POST['email']));
+			$phone = trim(htmlentities($_POST['phone']));
+			$risklevel = htmlentities($_POST['risklevel']);
+			$mortgage = htmlentities($_POST['mortgage']);
 			//TODO: (Validation)
 			if ($name == "")
 			{
