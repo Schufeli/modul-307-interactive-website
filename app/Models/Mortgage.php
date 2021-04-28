@@ -1,5 +1,4 @@
 <?php
-
 class Mortgage 
 {
     public int $id;
