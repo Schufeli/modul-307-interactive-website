@@ -6,18 +6,18 @@ class Customer
     public string $name;
     public string $email;
     public string $phone;
-    public string $created;
+    public DateTime $start;
+    public DateTime $finish;
     public bool $completed;
     public int $risklevelId;
     public int $mortgageId;
 
-    public function __construct(int $id, string $name, string $email, string $phone, string $created, bool $completed, int $risklevelId, int $mortgageId)
+    public function __construct(int $id, string $name, string $email, string $phone, bool $completed, int $risklevelId, int $mortgageId)
     {
         $this->id = $id;
         $this->name = $name;
         $this->email = $email;
         $this->phone = $phone;
-        $this->created = $created;
         $this->completed = $completed;
         $this->risklevelId = $risklevelId;
         $this->mortgageId = $mortgageId;
@@ -41,7 +41,8 @@ class Customer
             $result['name'],
             $result['email'],
             $result['phone'],
-            $result['created'],
+            $result['start'],
+            $result['finish'],
             $result['completed'],
             $result['fk_risklevelId'],
             $result['fk_mortgageId']
@@ -69,7 +70,8 @@ class Customer
                     $object['name'],
                     $object['email'],
                     $object['phone'],
-                    $object['created'],
+                    $object['start'],
+                    $object['finish'],
                     $object['completed'],
                     $object['fk_risklevelId'],
                     $object['fk_mortgageId']
@@ -82,16 +84,23 @@ class Customer
 
     // Create new Customer
     public function create() {
-        $date = date("Y-m-d");
+        // Fetch duration from Risklevel
+        $risklevel = Risklevel::getById($this->risklevelId);
+
+        $currentDateTime = new DateTime();
+        $start = $currentDateTime->format('Y-m-d');
+        $finish = $currentDateTime->add(new DateInterval('P'. $risklevel->duration .'D'))->format('Y-m-d');
+
         $statement = Database::getInstance()->getConnection()->prepare(
-            'INSERT INTO `customers` (name, email, phone, created, fk_risklevelId, fk_mortgageId) 
-             VALUES (:name, :email, :phone, :created, :risklevelId, :mortgageId)'
+            'INSERT INTO `customers` (name, email, phone, start, finish, fk_risklevelId, fk_mortgageId) 
+             VALUES (:name, :email, :phone, :start, :finish, :risklevelId, :mortgageId)'
         );
 
         $statement->bindParam(':name', $this->name);
         $statement->bindParam(':email', $this->email);
         $statement->bindParam(':phone', $this->phone);
-        $statement->bindParam(':created', $date);
+        $statement->bindParam(':start', $start);
+        $statement->bindParam(':finish', $finish);
         $statement->bindParam(':risklevelId', $this->risklevelId);
         $statement->bindParam(':mortgageId', $this->mortgageId);
 
