@@ -32,8 +32,8 @@ CREATE TABLE `customers` (
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `phone` varchar(255) DEFAULT NULL,
-  `start` DATE NOT NULL,
-  `finish` DATE NOT NULL,
+  `start` DATETIME NOT NULL,
+  `finish` DATETIME NOT NULL,
   `completed` tinyint DEFAULT 0,
   `fk_risklevelId` int(11) NOT NULL,
   `fk_mortgageId` int(11) NOT NULL
