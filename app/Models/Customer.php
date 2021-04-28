@@ -36,22 +36,48 @@ class Customer
 			return null;
 		}
 
-		return $result;
+		return new self(
+            $result['id'], 
+            $result['name'],
+            $result['email'],
+            $result['phone'],
+            $result['created'],
+            $result['completed'],
+            $result['fk_risklevelId'],
+            $result['fk_mortgageId']
+        );
     }
 
     // Fetch all Customers
     public static function getAll() 
     {
-        $statement = Database::getInstance()->getConnection()->prepare('SELECT * FROM customers');
+        $statement = Database::getInstance()->getConnection()->prepare('SELECT * FROM customers WHERE completed NOT LIKE 1');
         $statement->execute();
 
-        $result = $statement->fetchAll();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         if (!$result) {
             return null;
         }
 
-        return $result;
+        $customers = [];
+
+        foreach ($result as $object) {
+            array_push($customers,
+                new Customer(
+                    $object['id'],
+                    $object['name'],
+                    $object['email'],
+                    $object['phone'],
+                    $object['created'],
+                    $object['completed'],
+                    $object['fk_risklevelId'],
+                    $object['fk_mortgageId']
+                )
+            );
+        }
+
+        return $customers;
     }
 
     // Create new Customer
@@ -71,4 +97,36 @@ class Customer
 
         $statement->execute();
     }
+
+    // Update existing Customer
+    public function update()
+    {
+        $statement = Database::getInstance()->getConnection()->prepare(
+            'UPDATE `customers` SET name = :name, email = :email, phone = :phone, fk_risklevelId = :risklevelId, fk_mortgageId = _risklevelId 
+             WHERE id = :id'
+        );
+
+        $statement->bindParam(':id', $this->id);
+        $statement->bindParam(':name', $this->name);
+        $statement->bindParam(':email', $this->email);
+        $statement->bindParam(':phone', $this->phone);
+        $statement->bindParam(':risklevelId', $this->risklevelId);
+        $statement->bindParam(':mortgageId', $this->mortgageId);
+
+        $statement->execute();
+    }
+
+    // Remove existing Customer
+    public static function remove(int $id)
+    {
+        $statement = Database::getInstance()->getConnection()->prepare(
+            'UPDATE `customers` SET completed = 1 WHERE id = :id'
+        );
+
+        $statement->bindParam(':id', $id);
+
+        $statement->execute();
+    }
+
+
 }
