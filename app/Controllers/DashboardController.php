@@ -14,6 +14,8 @@ class DashboardController
 
 	public function create() 
 	{
+		$mortgages = Mortgage::getAll();
+
 		$errors = [];
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') 
 		{
