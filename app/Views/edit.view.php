@@ -11,21 +11,21 @@
         <input type="hidden" id="id" name="id"><br>
 
         <label for="name">Name: *</label><br>
-        <input type="text" id="name" name="name"><br>
+        <input type="text" id="name" name="name" value="<?=$customer['name'] ?? '' ?>" required><br>
 
         <label for="email">Email: *</label><br>
-        <input type="text" id="email" name="email"><br>
+        <input type="text" id="email" name="email" value="<?=$customer['email'] ?? '' ?>" required><br>
 
         <label for="phone">Phonenumber: </label><br>
-        <input type="tel" id="phone" name="phone"><br>
+        <input type="tel" id="phone" name="phone" value="<?=$customer['phone'] ?? ''?>"><br>
         
         <label for="mortgage">Choose a Mortgage: *</label>
-        <select name="mortgage" id="mortgage">
+        <select name="mortgage" id="mortgage" value="<?=$customer['mortgage'] ?>" required>
             <!-- php foreach for combobox -->
         </select> <br>
 
         <label for="paystatus">Pay-Status: </label>
-        <input type="checkbox" id="paystatus" name="paystatus"><br>
+        <input type="checkbox" id="paystatus" name="paystatus" value="<?=$customer['completed']?>" required><br>
 
         <input type="submit" value="Update">
     </form>
