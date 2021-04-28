@@ -26,7 +26,11 @@ class Risklevel
 			return null;
 		}
 
-		return $result;
+		return new self (
+            $result['id'],
+            $result['name'],
+            $result['duration']
+        );
     }
 
     // Fetch all Risklevels
@@ -41,6 +45,18 @@ class Risklevel
             return null;
         }
 
-        return $result;
+        $risklevels = [];
+
+        foreach ($result as $object) {
+            array_push($risklevels,
+                new Risklevel(
+                    $object['id'],
+                    $object['name'],
+                    $object['duration']
+                )
+            );
+        }
+
+        return $risklevels;
     }
 }
