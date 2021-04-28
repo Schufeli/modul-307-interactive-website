@@ -7,22 +7,28 @@
     <title>HippiBank</title>
 </head>
 <body>
-    <form name="createForm" action="/dashboard/create" method="POST">
+    <?php
+        foreach($errors as $error)
+        {
+            echo $error . '<br>';
+        }
+    ?>
+    <form name="createForm" action="./create" method="POST">
         <label for="name">Name: *</label><br>
-        <input type="text" id="name" name="name"><br>
+        <input type="text" id="name" name="name" value="<?=$name ?? ''?>" required><br>
 
         <label for="email">Email: *</label><br>
-        <input type="text" id="email" name="email"><br>
+        <input type="text" id="email" name="email" value="<?=$email ?? ''?>" required><br>
 
         <label for="phone">Phonenumber: </label><br>
-        <input type="tel" id="phone" name="phone"><br>
+        <input type="tel" id="phone" name="phone" value="<?=$phone ?? ''?>"><br>
         
         <label for="risklevel">Choose a Risklevel: *</label>
-        <select name="risklebel" id="risklebel">
+        <select name="risklevel" id="risklevel" value="<?=$risklevel ?? ''?>" required>
             <!-- php foreach for combobox -->
         </select> <br>
         <label for="mortgage">Choose a Mortgage: *</label>
-        <select name="mortgage" id="mortgage">
+        <select name="mortgage" id="mortgage" value="<?=$mortgage ?? ''?>" required>
             <!-- php foreach for combobox -->
         </select> <br>
 
