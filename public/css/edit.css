@@ -1,0 +1,24 @@
+.container {
+    margin-top: 5rem;
+
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    width: 70%;
+    padding: 1rem;
+    border: 1px black solid;
+}
+
+form input {
+    width: 100%;
+}
+
+form select {
+    width: 100%;
+}
+
+label {
+    margin-top: 1rem;
+}
