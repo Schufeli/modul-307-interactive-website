@@ -56,25 +56,25 @@ CREATE TABLE `mortgages` (
 --
 
 INSERT INTO `mortgages` (`id`, `package`) VALUES
-(20, 'Hypo-Paket: Fest 2  (0,54 %)'),
-(21, 'Hypo-Paket: Fest 3  (0,54 %)'),
-(22, 'Hypo-Paket: Fest 4  (0,59 %)'),
-(23, 'Hypo-Paket: Fest 5  (0,62 %)'),
-(24, 'Hypo-Paket: Fest 6  (0,75 %)'),
-(25, 'Hypo-Paket: Fest 7  (0,80 %)'),
-(26, 'Hypo-Paket: Fest 8  (0,83 %)'),
-(27, 'Hypo-Paket: Fest 9  (0,86 %)'),
-(28, 'Hypo-Paket: Fest 10  (0,91 %)'),
-(29, 'Hypo-Paket: Fest 11  (0,96 %)'),
-(30, 'Hypo-Paket: Fest 12  (1,02 %)'),
-(31, 'Hypo-Paket: Fest 13  (1,48 %)'),
-(32, 'Hypo-Paket: Fest 14  (1,54 %)'),
-(33, 'Hypo-Paket: Fest 15  (1,40 %)'),
-(34, 'Hypo-Paket: LIBOR 1M (0,72 %)'),
-(35, 'Hypo-Paket: LIBOR 3M (0,65 %)'),
-(36, 'Hypo-Paket: LIBOR 6M (0,65 %)'),
-(37, 'Hypo-Paket: LIBOR 12M (0,71 %)'),
-(38, 'Hypo-Paket: Variabel (2,25 %)');
+(0, 'Hypo-Paket: Fest 2  (0,54 %)'),
+(1, 'Hypo-Paket: Fest 3  (0,54 %)'),
+(2, 'Hypo-Paket: Fest 4  (0,59 %)'),
+(3, 'Hypo-Paket: Fest 5  (0,62 %)'),
+(4, 'Hypo-Paket: Fest 6  (0,75 %)'),
+(5, 'Hypo-Paket: Fest 7  (0,80 %)'),
+(6, 'Hypo-Paket: Fest 8  (0,83 %)'),
+(7, 'Hypo-Paket: Fest 9  (0,86 %)'),
+(8, 'Hypo-Paket: Fest 10  (0,91 %)'),
+(89, 'Hypo-Paket: Fest 11  (0,96 %)'),
+(10, 'Hypo-Paket: Fest 12  (1,02 %)'),
+(11, 'Hypo-Paket: Fest 13  (1,48 %)'),
+(12, 'Hypo-Paket: Fest 14  (1,54 %)'),
+(13, 'Hypo-Paket: Fest 15  (1,40 %)'),
+(14, 'Hypo-Paket: LIBOR 1M (0,72 %)'),
+(15, 'Hypo-Paket: LIBOR 3M (0,65 %)'),
+(16, 'Hypo-Paket: LIBOR 6M (0,65 %)'),
+(17, 'Hypo-Paket: LIBOR 12M (0,71 %)'),
+(18, 'Hypo-Paket: Variabel (2,25 %)');
 
 -- --------------------------------------------------------
 
@@ -93,11 +93,11 @@ CREATE TABLE `risklevels` (
 --
 
 INSERT INTO `risklevels` (`id`, `name`, `duration`) VALUES
-(1, 'sehr tief', 840),
-(2, 'tief', 660),
-(3, 'normal', 480),
-(4, 'hoch', 360),
-(5, 'sehr hoch', 240);
+(0, 'sehr tief', 840),
+(1, 'tief', 660),
+(2, 'normal', 480),
+(3, 'hoch', 360),
+(4, 'sehr hoch', 240);
 
 --
 -- Indizes der exportierten Tabellen
