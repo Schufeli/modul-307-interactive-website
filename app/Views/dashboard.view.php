@@ -6,8 +6,7 @@
     <link rel="stylesheet" href="public/css/app.css">
 </head>
 <body>
-
-<h1 class="welcome">Willkommen im 307-Framework!</h1>
+<h1 class="title">HippiBank</h1>
 
 
 <p><?php ?></p>
