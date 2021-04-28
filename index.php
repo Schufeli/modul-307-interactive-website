@@ -9,11 +9,5 @@ $routes = [
 	'/update' => 'DashboardController@update',
 ];
 
-$db = [
-	'name'     => 'hippibank',
-	'username' => 'root',
-	'password' => '',
-];
-
 $router = new Router($routes);
 $router->run($_GET['url'] ?? '');
