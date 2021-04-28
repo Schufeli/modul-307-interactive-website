@@ -14,8 +14,6 @@ class DashboardController
 
 	public function create() 
 	{
-		$mortgages = Mortgage::getAll();
-
 		$errors = [];
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') 
 		{
@@ -83,6 +81,7 @@ class DashboardController
 
 	public function edit() 
 	{
+		$mortgages = Mortgage::getAll();
 		require 'app/Views/edit.view.php';
 	}
 	
