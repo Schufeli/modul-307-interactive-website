@@ -7,10 +7,13 @@ class DashboardController
 		require 'app/Views/dashboard.view.php';
 	}
 
-	public function create() {
+	public function create() 
+	{
 
 	}
-	public function update() {
+
+	public function update() 
+	{
 		$id = $_POST['id'];
 		$name = $_POST['name'];
 		$email = $_POST['email'];
@@ -18,10 +21,14 @@ class DashboardController
 		$risklevel = $_POST['risklevel'];
 		$mortgage = $_POST['mortgage'];
 	}
-	public function edit() {
+
+	public function edit() 
+	{
 		require 'app/Views/edit.view.php';
 	}
-	public function confirm() {
+	
+	public function confirm() 
+	{
 
 	}
 }
