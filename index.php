@@ -2,11 +2,15 @@
 require 'core/bootstrap.php';
 
 $routes = [
-	'/hallo/welt' => 'WelcomeController@index',
+	'/' => 'DashboardController@index',
+	'/dashboard' => 'DashboardController@index',
+	'/create' => 'DashboardController@create',
+	'/edit' => 'DashboardController@edit',
+	'/update' => 'DashboardController@update',
 ];
 
 $db = [
-	'name'     => 'tasklist',
+	'name'     => 'hippibank',
 	'username' => 'root',
 	'password' => '',
 ];

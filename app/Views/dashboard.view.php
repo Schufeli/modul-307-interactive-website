@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Meine Seite</title>
+    <title>HippiBank</title>
     <link rel="stylesheet" href="public/css/app.css">
 </head>
 <body>
@@ -10,7 +10,7 @@
 <h1 class="welcome">Willkommen im 307-Framework!</h1>
 
 
-<p><?= e($hello) ?></p>
+<p><?php ?></p>
 
 <script src="public/js/app.js"></script>
 </body>
