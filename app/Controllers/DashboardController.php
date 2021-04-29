@@ -103,11 +103,7 @@ class DashboardController
 				$errors[] = 'Bitte geben Sie eine gültige Email-Adress ein!';
 			}
 
-			if ($phone === '') {
-				$errors[] = 'Bitte geben Sie eine gültige Telefonnummer an!';
-			}
-
-			else if (preg_match('^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\.\0-9]*$', $phone)) 
+			if ($phone !== '' && preg_match('^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\.\0-9]*$', $phone)) 
 			{
 				$errors[] = 'Bitte geben Sie eine gültige Telefonnummer ein!';
 			}

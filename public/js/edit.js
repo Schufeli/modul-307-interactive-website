@@ -19,12 +19,9 @@ window.addEventListener("load", function(){
             errors.push('Please provide a Email Address');
 
         if (!emailRegex.test(email))
-            errors.push('Please provide a valid Email adress');
+            errors.push('Please provide a valid Email adress');form
 
-        if (phone === '')
-            errors.push('Please provide a Email Address');
-
-        if (!phoneRegex.test(phone))
+        if (phone != '' && !phoneRegex.test(phone))
             errors.push('Please provide a valid Phonenumber');
 
         if (mortgage === '')
