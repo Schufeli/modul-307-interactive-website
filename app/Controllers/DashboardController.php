@@ -156,6 +156,7 @@ class DashboardController
 	{
 		$customer = Customer::getById($_GET['id']);
 		$mortgages = Mortgage::getAll();
+		$risklevels = Risklevel::getAll();
 		require 'app/Views/edit.view.php';
 	}
 	
