@@ -39,7 +39,11 @@
                         }
                     ?>
                 </td>
-                <td><p>Options</p></td>
+                <td>
+                    <a href="/modul-307-interactive-website/edit?id=<?= $customer->id ?>">
+                        <button type="button" class="btn btn-primary btn-smy">Edit</button>
+                    </a>
+                </td>
             </tr>
         <?php endforeach; ?>
     </table>

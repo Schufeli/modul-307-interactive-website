@@ -22,3 +22,7 @@ form select {
 label {
     margin-top: 1rem;
 }
+
+ul li {
+    color: red;
+}

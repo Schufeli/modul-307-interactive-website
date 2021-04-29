@@ -13,16 +13,16 @@
         <div class="wrapper">
             <h1>Edit</h1>
             <form action="/modul-307-interactive-website/update" method="POST">
-                <input type="hidden" id="id" name="id"><br>
+                <input type="hidden" id="id" name="id" value="<?= $customer->id ?? '' ?>"><br>
 
                 <label for="name">Name: *</label><br>
-                <input type="text" id="name" name="name" value="<?=$customer['name'] ?? '' ?>" required><br>
+                <input type="text" id="name" name="name" value="<?=$customer->name ?? '' ?>" required><br>
 
                 <label for="email">Email: *</label><br>
-                <input type="text" id="email" name="email" value="<?=$customer['email'] ?? '' ?>" required><br>
+                <input type="text" id="email" name="email" value="<?=$customer->email ?? '' ?>" required><br>
 
                 <label for="phone">Phonenumber: </label><br>
-                <input type="tel" id="phone" name="phone" value="<?=$customer['phone'] ?? ''?>"><br>
+                <input type="tel" id="phone" name="phone" value="<?=$customer->phone ?? ''?>"><br>
                 
                 <label for="mortgage">Choose a Mortgage: *</label><br>
                 <select name="mortgage" id="mortgage">
@@ -31,12 +31,17 @@
                     <?php endforeach; ?>
                 </select> <br>
 
-                <label for="paystatus">Pay-Status: </label>
-                <input type="checkbox" id="paystatus" name="paystatus" value="<?=$customer['completed']?>" required><br>
-
+                <div>
+                    <label for="completed">Pay Completed: </label>
+                    <input type="checkbox" id="completed" name="completed" value="<?= $customer->completed ?? '' ?>">
+                </div>
+                
                 <input type="submit" value="Update">
             </form>
+            <ul id="errorList">
+            </ul>
         </div>
     </div>
+    <script src="public/js/edit.js"></script>
 </body>
 </html>
