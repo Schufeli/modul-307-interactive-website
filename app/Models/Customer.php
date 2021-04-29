@@ -113,7 +113,7 @@ class Customer
     public function update()
     {
         $statement = Database::getInstance()->getConnection()->prepare(
-            'UPDATE `customers` SET name = :name, email = :email, phone = :phone, fk_risklevelId = :risklevelId, fk_mortgageId = _risklevelId 
+            'UPDATE `customers` SET name = :name, email = :email, phone = :phone, fk_mortgageId = :mortgageId, completed = :completed
              WHERE id = :id'
         );
 
@@ -121,13 +121,13 @@ class Customer
         $statement->bindParam(':name', $this->name);
         $statement->bindParam(':email', $this->email);
         $statement->bindParam(':phone', $this->phone);
-        $statement->bindParam(':risklevelId', $this->risklevelId);
         $statement->bindParam(':mortgageId', $this->mortgageId);
+        $statement->bindParam(':completed', $this->completed);
 
         $statement->execute();
     }
 
-    // Remove existing Customer
+    // Set Customer to completed
     public static function remove(int $id)
     {
         $statement = Database::getInstance()->getConnection()->prepare(
