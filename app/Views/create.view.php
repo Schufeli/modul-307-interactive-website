@@ -24,12 +24,16 @@
         <input type="tel" id="phone" name="phone" value="<?=$phone ?? ''?>"><br>
         
         <label for="risklevel">Choose a Risklevel: *</label>
-        <select name="risklevel" id="risklevel" value="<?=$risklevel ?? ''?>" required>
-            <!-- php foreach for combobox -->
+        <select name="risklevel" id="risklevel" value="<?=$risklevels[$risklevel]->name ?? ''?>" required>
+        <?php foreach($risklevels as $risklevel): ?>
+                <option value="<?=$risklevel->id?>"><?=$risklevel->name?></option>
+        <?php endforeach; ?> 
         </select> <br>
         <label for="mortgage">Choose a Mortgage: *</label>
-        <select name="mortgage" id="mortgage" value="<?=$mortgage ?? ''?>" required>
-            <!-- php foreach for combobox -->
+        <select name="mortgage" id="mortgage" value="<?=$mortgages[$mortgage]->package ?? ''?>" required>
+        <?php foreach($mortgages as $mortgage): ?>
+                <option value="<?=$mortgage->id?>"><?=$mortgage->package?></option>
+        <?php endforeach; ?>
         </select> <br>
 
         <input type="submit" value="Add">

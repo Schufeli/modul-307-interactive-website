@@ -9,6 +9,7 @@
 <body>
 <div class="container">
     <h1 class="title">HippiBank</h1>
+    <a href="./create"><button>Add</button></a>
     <table style="width:100%">
         <tr>
             <th>Name</th>
@@ -29,10 +30,12 @@
                 <td>
                     <?php
                         $currentDateTime = new DateTime();
-                        if ($customer->completed != 1 && strtotime($customer->finish) > strtotime($currentDateTime->format('Y-m-d'))) {
+                        if ($customer->completed != 1 && strtotime($customer->finish) > strtotime($currentDateTime->format('Y-m-d'))) 
+                        {
                             echo "💸";
                         }
-                        else {
+                        else 
+                        {
                             echo "🚨";
                         }
                     ?>

@@ -14,6 +14,8 @@ class DashboardController
 
 	public function create() 
 	{
+		$mortgages = Mortgage::getAll();
+		$risklevels = Risklevel::getAll();
 		$errors = [];
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') 
 		{
@@ -22,7 +24,7 @@ class DashboardController
 			$phone = trim(htmlentities($_POST['phone']));
 			$risklevel = htmlentities($_POST['risklevel']);
 			$mortgage = htmlentities($_POST['mortgage']);
-			//TODO: (Validation)
+			//Validation
 			if ($name == "")
 			{
 				$errors[] = 'Bitte geben Sie einen Namen ein!';
@@ -31,13 +33,16 @@ class DashboardController
 			{
 				$errors[] = 'Bitte geben Sie eine Email-Adresse ein!';
 			} 
-			elseif (preg_match("/[^@]+@[^.]+\..+$/i", $email) == false) 
+			elseif (!preg_match("/[^@]+@[^.]+\..+$/i", $email)) 
 			{
 				$errors[] = 'Bitte geben Sie eine gültige Email-Adress ein!';
 			}
-			if (preg_match('/(0|\+?\d{2})(\d{7,8})/', $phone)) 
+			if ($phone != '') 
 			{
-				$errors[] = 'Bitte geben Sie eine gültige Telefonnummer ein!';
+				if (!preg_match("/^[0-9\-\(\)\/\+\s]+$/", $phone)) 
+				{
+					$errors[] = 'Bitte geben Sie eine gültige Telefonnummer ein!';
+				}
 			}
 			if ($risklevel == null)
 			{
@@ -49,13 +54,18 @@ class DashboardController
 			}
 			if (sizeof($errors) == 0) 
 			{
-				$customer->create(
+				$customer = new Customer(
+					0,
 					$name,
 					$email,
 					$phone,
+					"",
+					"",
+					false,
 					$risklevel,
 					$mortgage
 				);
+				$customer->create();
 				header('Location: dashboard');
 			}
 			else 
