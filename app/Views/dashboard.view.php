@@ -11,6 +11,7 @@
 <body>
 <div class="container">
     <h1 class="title">HippiBank</h1>
+    <a href="./create"><button>Add</button></a>
     <table style="width:100%">
         <tr>
             <th>Name</th>
