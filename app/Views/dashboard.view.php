@@ -21,31 +21,35 @@
             <th>Payback-Status</th>
             <th>Options</th>
         </tr>
-        <?php foreach($customers as $customer): ?>
-            <tr>
-                <td><?= $customer->name ?></td>
-                <td><?= $customer->email ?></td>
-                <td><?= $customer->phone ?></td>
-                <td><?= $risklevels[$customer->risklevelId]->name ?></td>
-                <td><?= $mortgages[$customer->mortgageId]->package ?></td>
-                <td>
-                    <?php
-                        $currentDateTime = new DateTime();
-                        if ($customer->completed != 1 && strtotime($customer->finish) > strtotime($currentDateTime->format('Y-m-d'))) {
-                            echo "💸";
-                        }
-                        else {
-                            echo "🚨";
-                        }
-                    ?>
-                </td>
-                <td>
-                    <a href="/modul-307-interactive-website/edit?id=<?= $customer->id ?>">
-                        <button type="button" class="btn btn-primary btn-smy">Edit</button>
-                    </a>
-                </td>
-            </tr>
-        <?php endforeach; ?>
+        <?php if ($customers !== null): ?>
+            <?php foreach($customers as $customer): ?>
+                <tr>
+                    <td><?= $customer->name ?></td>
+                    <td><?= $customer->email ?></td>
+                    <td><?= $customer->phone ?></td>
+                    <td><?= $risklevels[$customer->risklevelId]->name ?></td>
+                    <td><?= $mortgages[$customer->mortgageId]->package ?></td>
+                    <td>
+                        <?php
+                            $currentDateTime = new DateTime();
+                            if ($customer->completed != 1 && strtotime($customer->finish) > strtotime($currentDateTime->format('Y-m-d'))) {
+                                echo "💸";
+                            }
+                            else {
+                                echo "🚨";
+                            }
+                        ?>
+                    </td>
+                    <td>
+                        <a href="/modul-307-interactive-website/edit?id=<?= $customer->id ?>">
+                            <button type="button" class="btn btn-primary btn-smy">Edit</button>
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            <?php else: ?>
+                <h3>Database is empty please create first customer!</h3>
+        <?php endif; ?>
     </table>
 </div>
 
