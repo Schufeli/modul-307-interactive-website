@@ -27,7 +27,12 @@
                 <label for="mortgage">Choose a Mortgage: *</label><br>
                 <select name="mortgage" id="mortgage">
                     <?php foreach($mortgages as $mortgage): ?>
-                        <option value="<?= $mortgage->id ?>"><?= $mortgage->package ?></option>
+                        <option <?php 
+                            if ($customer->mortgageId == $mortgage->id) 
+                            { ?>
+                                selected="true" 
+                            <?php }; ?>
+                        value="<?= $mortgage->id ?>"><?= $mortgage->package ?></option>
                     <?php endforeach; ?>
                 </select> <br>
 
