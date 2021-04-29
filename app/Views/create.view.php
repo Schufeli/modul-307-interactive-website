@@ -29,7 +29,7 @@
         
         <label for="risklevel">Choose a Risklevel: *</label>
         <select name="risklevel" id="risklevel" required>
-        <?php foreach($risklevels as $risklevel): ?>
+            <?php foreach($risklevels as $risklevel): ?>
                 <option 
                 <?php 
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') 
@@ -39,7 +39,7 @@
                         selected="true" 
                     <?php }; 
                 }?> value="<?=$risklevel->id?>"><?=$risklevel->name?></option>
-        <?php endforeach; ?> 
+            <?php endforeach; ?> 
         </select> <br>
         <label for="mortgage">Choose a Mortgage: *</label>
         <select name="mortgage" id="mortgage" required>
@@ -60,7 +60,7 @@
             <?php endforeach; ?>
         </select> <br>
         <label for="mortgage">Pay-Date</label>
-        <input class="dateOutput" type="text" value="<?=$finisch ?? ''?>" readonly><br>
+        <input class="dateOutput" type="text" value="<?=$finisch ?? ''?>" readonly><br><br>
         <input type="submit" value="Add">
     </form>
     </div>
