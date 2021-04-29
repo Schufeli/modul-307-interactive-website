@@ -54,7 +54,7 @@ class Customer
     // Fetch all Customers
     public static function getAll() 
     {
-        $statement = Database::getInstance()->getConnection()->prepare('SELECT * FROM customers WHERE completed NOT LIKE 1');
+        $statement = Database::getInstance()->getConnection()->prepare('SELECT * FROM customers WHERE completed NOT LIKE 1 ORDER BY start ASC');
         $statement->execute();
 
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);// fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, "Customer"); //PDO::FETCH_ASSOC
