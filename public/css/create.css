@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.wrapper {
+    width: 70%;
+    padding: 10px;
+    border: 1px black solid;
+}
+
+form input {
+    width: 100%;
+}
+
+form select {
+    width: 100%;
+}
+
+label {
+    margin-top: 1rem;
+}
+
+ul li {
+    color: red;
+}

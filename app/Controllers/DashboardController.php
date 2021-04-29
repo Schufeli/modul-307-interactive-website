@@ -14,6 +14,7 @@ class DashboardController
 
 	public function create() 
 	{
+		
 		$mortgages = Mortgage::getAll();
 		$risklevels = Risklevel::getAll();
 		$errors = [];

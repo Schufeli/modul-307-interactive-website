@@ -63,6 +63,5 @@
         </table>
     </form>
 </div>
-<script src="public/js/dashboard.js"></script>
 </body>
 </html>
