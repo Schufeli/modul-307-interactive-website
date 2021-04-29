@@ -65,7 +65,7 @@ INSERT INTO `mortgages` (`id`, `package`) VALUES
 (6, 'Hypo-Paket: Fest 8  (0,83 %)'),
 (7, 'Hypo-Paket: Fest 9  (0,86 %)'),
 (8, 'Hypo-Paket: Fest 10  (0,91 %)'),
-(89, 'Hypo-Paket: Fest 11  (0,96 %)'),
+(9, 'Hypo-Paket: Fest 11  (0,96 %)'),
 (10, 'Hypo-Paket: Fest 12  (1,02 %)'),
 (11, 'Hypo-Paket: Fest 13  (1,48 %)'),
 (12, 'Hypo-Paket: Fest 14  (1,54 %)'),
