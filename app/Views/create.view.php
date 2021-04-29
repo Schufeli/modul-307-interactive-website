@@ -30,12 +30,11 @@
         <?php endforeach; ?> 
         </select> <br>
         <label for="mortgage">Choose a Mortgage: *</label>
-        <select name="mortgage" id="mortgage" value="<?=$mortgages[$mortgage]->package ?? ''?>" required>
-        <?php foreach($mortgages as $mortgage): ?>
+        <select name="mortgage" id="mortgage" required>
+            <?php foreach($mortgages as $mortgage): ?>
                 <option value="<?=$mortgage->id?>"><?=$mortgage->package?></option>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
         </select> <br>
-
         <input type="submit" value="Add">
     </form>
 </body>
