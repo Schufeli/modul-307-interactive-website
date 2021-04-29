@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/css/create.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <title>HippiBank</title>
 </head>
 <body>
+    <div class="container">
+    <div class="wrapper">
     <?php
         foreach($errors as $error)
         {
@@ -24,7 +28,7 @@
         <input type="tel" id="phone" name="phone" value="<?=$phone ?? ''?>"><br>
         
         <label for="risklevel">Choose a Risklevel: *</label>
-        <select name="risklevel" id="risklevel" required onchange="updateDate()">
+        <select name="risklevel" id="risklevel" required>
         <?php foreach($risklevels as $risklevel): ?>
                 <option 
                 <?php 
@@ -55,19 +59,11 @@
                 </option>
             <?php endforeach; ?>
         </select> <br>
-        <label for="mortgage">Zahldatum</label>
+        <label for="mortgage">Pay-Date</label>
         <input class="dateOutput" type="text" value="<?=$finisch ?? ''?>" readonly><br>
         <input type="submit" value="Add">
-        <script>
-            document.addEventListener('selectionchange', () => {
-                console.log(document.getSelection());
-            });
-
-            // onselectionchange version
-            document.onselectionchange = () => {
-                ;
-            }
-        </script>
     </form>
+    </div>
+    </div>
 </body>
 </html>
