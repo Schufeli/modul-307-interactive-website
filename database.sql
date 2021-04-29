@@ -23,6 +23,7 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS hippibank;
 -- --------------------------------------------------------
 USE hippibank;
+
 --
 -- Tabellenstruktur für Tabelle `customers`
 --
@@ -32,13 +33,22 @@ CREATE TABLE `customers` (
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `phone` varchar(255) DEFAULT NULL,
-  `start` DATETIME NOT NULL,
-  `finish` DATETIME NOT NULL,
-  `completed` tinyint DEFAULT 0,
+  `start` datetime NOT NULL,
+  `finish` datetime NOT NULL,
+  `completed` tinyint(4) DEFAULT 0,
   `fk_risklevelId` int(11) NOT NULL,
   `fk_mortgageId` int(11) NOT NULL
-  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `customers`
+--
+
+INSERT INTO `customers` (`id`, `name`, `email`, `phone`, `start`, `finish`, `completed`, `fk_risklevelId`, `fk_mortgageId`) VALUES
+(4, 'Kunde 1', 'k1@test.local', '+41 79 900 00 00', '2021-04-29 00:00:00', '2023-08-17 00:00:00', 0, 0, 0),
+(5, 'Kunde 2', 'k2@test.lo', '+41 79 900 00 66', '2021-04-29 00:00:00', '2023-02-18 00:00:00', 0, 1, 7),
+(6, 'Kunde 3', 'k3@test.local', '+41 79 900 00 00', '2021-04-29 00:00:00', '2021-12-25 00:00:00', 0, 4, 18),
+(7, 'Broke McBrokeBroke', 'broke@broke.bk', '+41 79 900 00 00', '2021-04-29 00:00:00', '2021-12-25 00:00:00', 0, 4, 18);
 
 -- --------------------------------------------------------
 
@@ -131,7 +141,7 @@ ALTER TABLE `risklevels`
 -- AUTO_INCREMENT für Tabelle `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT für Tabelle `mortgages`

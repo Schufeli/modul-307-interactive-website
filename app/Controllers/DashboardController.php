@@ -3,7 +3,7 @@
 class DashboardController
 {
 	
-
+	// Method to fetch all information from the DB and display it in a HTML Table
 	public function index()
 	{
 		$customers = Customer::getAll();
@@ -80,6 +80,7 @@ class DashboardController
 		}
 	}
 
+	// Method used to update information from the edit view
 	public function update() 
 	{
 		$errors = [];
@@ -153,17 +154,20 @@ class DashboardController
 		
 	}
 
+	// Method to edit a Customer
 	public function edit() 
 	{
-		$customer = Customer::getById($_GET['id']);
+		// Fetch objects from database
+		$customer = Customer::getById($_GET['id']); 
 		$mortgages = Mortgage::getAll();
 		$risklevels = Risklevel::getAll();
+
 		require 'app/Views/edit.view.php';
 	}
 
 	public function complete() 
 	{
-		$selected = $_POST['selected'];
+		$selected = $_POST['selected']; // list of checkboxes
 
 		if (!empty($selected)) {
 			foreach ($selected as $element)
@@ -173,11 +177,6 @@ class DashboardController
 		}
 
 		header('Location: dashboard');
-	}
-	
-	public function confirm() 
-	{
-
 	}
 }
 
