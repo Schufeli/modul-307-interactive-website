@@ -26,15 +26,38 @@
         <label for="risklevel">Choose a Risklevel: *</label>
         <select name="risklevel" id="risklevel" value="<?=$risklevels[$risklevel]->name ?? ''?>" required>
         <?php foreach($risklevels as $risklevel): ?>
-                <option value="<?=$risklevel->id?>"><?=$risklevel->name?></option>
+                <option 
+                <?php 
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+                {
+                    if ($_POST['risklevel'] == $risklevel->id) 
+                    { ?>
+                        selected="true" 
+                    <?php }; 
+                }?> value="<?=$risklevel->id?>"><?=$risklevel->name?></option>
         <?php endforeach; ?> 
         </select> <br>
         <label for="mortgage">Choose a Mortgage: *</label>
         <select name="mortgage" id="mortgage" required>
             <?php foreach($mortgages as $mortgage): ?>
-                <option value="<?=$mortgage->id?>"><?=$mortgage->package?></option>
+                <option 
+                <?php 
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+                {
+                    if ($_POST['mortgage'] == $mortgage->id) 
+                    { ?>
+                        selected="true" 
+                    <?php }; 
+                }?> 
+                
+                value="<?=$mortgage->id?>">
+                    <?=$mortgage->package?>
+                </option>
             <?php endforeach; ?>
         </select> <br>
+        <script type="text/javascript">
+            document.getElementById('location').value = "<?php echo $_GET['location'];?>";
+        </script>
         <input type="submit" value="Add">
     </form>
 </body>
