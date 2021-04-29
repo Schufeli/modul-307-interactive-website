@@ -159,6 +159,20 @@ class DashboardController
 		$risklevels = Risklevel::getAll();
 		require 'app/Views/edit.view.php';
 	}
+
+	public function complete() 
+	{
+		$selected = $_POST['selected'];
+
+		if (!empty($selected)) {
+			foreach ($selected as $element)
+			{
+				Customer::remove((int)$element);
+			}
+		}
+
+		header('Location: dashboard');
+	}
 	
 	public function confirm() 
 	{
