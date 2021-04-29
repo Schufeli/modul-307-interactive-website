@@ -11,12 +11,6 @@
 <body>
     <div class="container">
     <div class="wrapper">
-    <?php
-        foreach($errors as $error)
-        {
-            echo $error . '<br>';
-        } 
-    ?>
     <form name="createForm" action="./create" method="POST">
         <label for="name">Name: *</label><br>
         <input type="text" id="name" name="name" value="<?=$name ?? ''?>" required><br>
@@ -28,7 +22,7 @@
         <input type="tel" id="phone" name="phone" value="<?=$phone ?? ''?>"><br>
         
         <label for="risklevel">Choose a Risklevel: *</label>
-        <select name="risklevel" id="risklevel" required>
+        <select name="risklevel" id="risklevel" required onchange="calculateFinishDate()">
             <?php foreach($risklevels as $risklevel): ?>
                 <option 
                 <?php 
@@ -59,11 +53,13 @@
                 </option>
             <?php endforeach; ?>
         </select> <br>
-        <label for="mortgage">Pay-Date</label>
-        <input class="dateOutput" type="text" value="<?=$finisch ?? ''?>" readonly><br><br>
+        <label for="dateOuput">Pay-Date</label>
+        <input id="dateOutput" type="text" disabled><br><br>
         <input type="submit" value="Add">
     </form>
+    <ul id="errorList"></ul>
     </div>
     </div>
+    <script src="public/js/create.js"></script>
 </body>
 </html>

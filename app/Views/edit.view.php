@@ -52,8 +52,7 @@
                 
                 <input type="submit" value="Update">
             </form>
-            <ul id="errorList">
-            </ul>
+            <ul id="errorList"></ul>
         </div>
     </div>
     <script src="public/js/edit.js"></script>
