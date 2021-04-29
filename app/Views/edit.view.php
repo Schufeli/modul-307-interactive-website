@@ -12,7 +12,7 @@
     <div class="container">
         <div class="wrapper">
             <h1>Edit</h1>
-            <form action="/modul-307-interactive-website/update" method="POST">
+            <form action="./update" method="POST">
                 <input type="hidden" id="id" name="id" value="<?= $customer->id ?? '' ?>"><br>
 
                 <label for="name">Name: *</label><br>
