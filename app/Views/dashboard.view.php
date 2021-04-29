@@ -15,8 +15,6 @@
 
     <form method="POST" action="./complete">
         <input type="submit" value="Complete">
-        
-        
         <table style="width:100%">
             <tr>
                 <th>Select</th>
@@ -65,10 +63,6 @@
         </table>
     </form>
 </div>
-
-
-<p><?php ?></p>
-
 <script src="public/js/dashboard.js"></script>
 </body>
 </html>
