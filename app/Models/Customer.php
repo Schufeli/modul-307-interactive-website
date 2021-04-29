@@ -127,7 +127,7 @@ class Customer
         $statement->execute();
     }
 
-    // Remove existing Customer
+    // Set Customer to completed
     public static function remove(int $id)
     {
         $statement = Database::getInstance()->getConnection()->prepare(
