@@ -11,7 +11,7 @@
         foreach($errors as $error)
         {
             echo $error . '<br>';
-        }
+        } 
     ?>
     <form name="createForm" action="./create" method="POST">
         <label for="name">Name: *</label><br>
@@ -24,7 +24,7 @@
         <input type="tel" id="phone" name="phone" value="<?=$phone ?? ''?>"><br>
         
         <label for="risklevel">Choose a Risklevel: *</label>
-        <select name="risklevel" id="risklevel" value="<?=$risklevels[$risklevel]->name ?? ''?>" required>
+        <select name="risklevel" id="risklevel" required onchange="updateDate()">
         <?php foreach($risklevels as $risklevel): ?>
                 <option 
                 <?php 
@@ -55,10 +55,19 @@
                 </option>
             <?php endforeach; ?>
         </select> <br>
-        <script type="text/javascript">
-            document.getElementById('location').value = "<?php echo $_GET['location'];?>";
-        </script>
+        <label for="mortgage">Zahldatum</label>
+        <input class="dateOutput" type="text" value="<?=$finisch ?? ''?>" readonly><br>
         <input type="submit" value="Add">
+        <script>
+            document.addEventListener('selectionchange', () => {
+                console.log(document.getSelection());
+            });
+
+            // onselectionchange version
+            document.onselectionchange = () => {
+                ;
+            }
+        </script>
     </form>
 </body>
 </html>
