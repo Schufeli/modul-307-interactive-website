@@ -82,7 +82,7 @@ GEGEBEN SEI   Ich befinde mich auf der Dashboard route
 WENN          der Erstellenbutton gedrückt wird,
 DANN          öffnet sich ein Formular, in welchem eine neue Hypothek erstellt werden kann.
 ```
-### 8. Hinzufügen einer Hypotgek
+### 8. Erstellen einer Hypothek
 ```
 GEGEBEN SEI   Ich befinde mich auf der Create route
 WENN          alle Felder valide sind,
