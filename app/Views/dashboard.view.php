@@ -20,6 +20,7 @@
             <th>Risklevel</th>
             <th>Hypo-Paket</th>
             <th>Payback-Status</th>
+            <th>Due-Date</th>
             <th>Options</th>
         </tr>
         <?php if ($customers !== null): ?>
@@ -41,6 +42,7 @@
                             }
                         ?>
                     </td>
+                    <td><?= $customer->finish ?></td>
                     <td>
                         <a href="/modul-307-interactive-website/edit?id=<?= $customer->id ?>">
                             <button type="button" class="btn btn-primary btn-smy">Edit</button>
