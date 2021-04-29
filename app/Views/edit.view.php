@@ -30,6 +30,15 @@
                         <option value="<?= $mortgage->id ?>"><?= $mortgage->package ?></option>
                     <?php endforeach; ?>
                 </select> <br>
+                        
+                <label for="risklevel">Risklevel: </label>
+                <input type="text" name="risklevel" id="risklevel" value="<?= $risklevels[$customer->risklevelId]->name ?>" disabled>
+
+                <label for="created">Created on: </label>
+                <input type="text" name="created" value="<?= $customer->start ?>" disabled>
+
+                <label for="finished">Finished by: </label>
+                <input type="text" name="finished" value="<?= $customer->finish ?>" disabled>
 
                 <div>
                     <label for="completed">Pay Completed: </label>
