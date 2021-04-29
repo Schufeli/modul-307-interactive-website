@@ -11,10 +11,12 @@
 <body>
 <div class="container">
     <h1 class="title">HippiBank</h1>
-    <a href="./create"><button>Add</button></a>
+    
 
     <form method="POST" action="./complete">
-    <input type="submit" value="Complete">
+        <input type="submit" value="Complete">
+        <a href="./create"><button>Create</button></a>
+        
         <table style="width:100%">
             <tr>
                 <th>Select</th>
