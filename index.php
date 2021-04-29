@@ -7,6 +7,7 @@ $routes = [
 	'/create' => 'DashboardController@create',
 	'/edit' => 'DashboardController@edit',
 	'/update' => 'DashboardController@update',
+	'/complete' => 'DashboardController@complete'
 ];
 
 $router = new Router($routes);
