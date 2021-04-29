@@ -69,6 +69,6 @@
 
 <p><?php ?></p>
 
-<script src="public/js/dashboard.js"></script>
+<script src="public/js/app.js"></script>
 </body>
 </html>
